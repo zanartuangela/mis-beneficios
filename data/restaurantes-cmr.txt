@@ -1,6 +1,6 @@
 # Restaurantes con descuento CMR (Banco Falabella). Una oferta por línea:
 # descuento|nombre|condición|días|ubicación|vence (AAAA-MM-DD)
-# Fuente: panguiapp.com/explorar?category=restaurante&bank=cmr-falabella (leída el 2026-11-02) y neatpagos.com.
+# Fuente: panguiapp.com/explorar?category=restaurante&bank=cmr-falabella (leída el 2026-11-02) neatpagos.com y bancofalabella.cl/descuentos/restaurantes (oficial, leída el 2026-11-02).
 # "Cerca de ti" significa que la fuente no indica un lugar específico.
 40|Fuente Suiza|Exclusivo presencial|Todos los días|Cerrillos +2|2026-12-01
 40|Coppelia|Exclusivo presencial|Todos los lunes|Cerca de ti|2026-12-01
@@ -34,7 +34,7 @@
 40|Cantina Montt|Exclusivo presencial|martes y sábado|Providencia|2026-12-01
 40|Cantina Varas|Exclusivo presencial|6 días a la semana|Providencia|2026-12-01
 40|Kento Gourmet|Presencial y online|4 días a la semana|Cerca de ti|2026-12-01
-40|Misceláneo|Exclusivo presencial|5 días a la semana|Vitacura|2026-12-01
+40|Misceláneo|Exclusivo presencial|5 días a la semana|Vitacura|2026-11-30
 40|Udon|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
 40|Kato|Exclusivo presencial|6 días a la semana|Cerca de ti|2026-12-01
 40|Siete Cortes|Presencial. Lunes y martes todo el día; miércoles a domingo desde las 19:00 (Open Kennedy)|Todos los días|Región Metropolitana de Santiago|2026-12-01
@@ -83,7 +83,7 @@
 40|Petit|Presencial|Todos los días|Cerca de ti|2026-12-01
 40|Sakura|En rolls y hosomakis|Todos los sábados|Cerca de ti|2026-12-01
 40|Le Vice|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
-40|Prima Bar|Exclusivo presencial|Todos los viernes|Cerca de ti|2026-12-01
+40|Prima Bar|Exclusivo presencial|Todos los viernes|Cerca de ti|2026-11-30
 40|Viña Viu Manent y Restaurante Rayuela|Exclusivo presencial|Todos los viernes|Cerca de ti|2026-12-01
 40|Hijo del Sol 5ta Región|Presencial Maitencillo y Algarrobo|martes y jueves|Cerca de ti|2026-12-01
 40|Casa Abierta|Presencial en Concón|Todos los miércoles|Cerca de ti|2026-12-01
@@ -95,6 +95,19 @@
 40|La Independiente Puerto Varas|Presencial en Puerto Varas|Todos los domingos|Cerca de ti|2026-12-01
 40|Esquina Tropera Coyhaique|Presencial en Coyhaique|Todos los miércoles|Cerca de ti|2026-12-01
 40|Santo Aire Restobar|Presencial en Concepción|Todos los jueves|Cerca de ti|2026-12-01
+40|Sicily Pizzería|Exclusivo presencial|Todos los lunes|Región Metropolitana de Santiago|2026-11-30
+40|Paris Texas|Exclusivo presencial|4 días a la semana|Región Metropolitana de Santiago|2026-12-01
+40|Exò Nuit|Exclusivo presencial|5 días a la semana|Región Metropolitana de Santiago|2026-11-30
+40|Kila Coffee|Exclusivo presencial|Todos los martes|Región Metropolitana de Santiago|2026-12-01
+40|Nomade Nikkei|Presencial en Buin|Todos los miércoles|Buin|2026-12-01
+40|Bistro Cascade|Exclusivo presencial en BordeRío|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|Kechua|Exclusivo presencial en BordeRío|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|Krossbar|Exclusivo presencial en BordeRío|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|La Tabla|Exclusivo presencial en BordeRío|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|PF Chang's|Exclusivo presencial|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|Chili's|Exclusivo presencial|Todos los martes|Región Metropolitana de Santiago|2026-11-30
+40|Dublin Chile|Revisa condiciones en el banco|lunes y martes|Región Metropolitana de Santiago|2026-11-30
+40|Cuponera Gastronómica|Exclusivo con tus tarjetas|Todos los días|Cerca de ti|2027-12-31
 30|Jackie Guiloff|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
 30|House Bar|Online|Todos los días|Cerca de ti|2026-12-01
 25|Martes de Dulzura Mallplaza|Presencial en Mallplaza|Todos los martes|Cerca de ti|2026-12-01
