@@ -110,6 +110,409 @@
     "verificado": true
   },
   {
+    "id": "cmr-5asec",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "5aSec",
+    "categoria": "Servicios",
+    "descuento": "Hasta 25%",
+    "dias": [
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-06-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-arena-xp",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Arena XP",
+    "categoria": "Entretención",
+    "descuento": "40%",
+    "detalle": "En juegos.",
+    "dias": [
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "RM y La Araucanía",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-avis-budget",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Avis Budget",
+    "categoria": "Viajes",
+    "descuento": "Hasta 20%",
+    "detalle": "En arriendos.",
+    "canal": "Online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-beauty-plus",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Beauty Plus",
+    "categoria": "Salud y belleza",
+    "descuento": "40%",
+    "dias": [
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-bienestar-animal",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Bienestar Animal",
+    "categoria": "Mascotas",
+    "descuento": "20%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-carpintero-negro",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Carpintero Negro",
+    "categoria": "Compras",
+    "descuento": "40%",
+    "detalle": "Online con CMR Elite.",
+    "dias": [
+      4
+    ],
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-carvuk",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Carvuk",
+    "categoria": "Servicios",
+    "descuento": "Hasta 40%",
+    "detalle": "En servicios seleccionados.",
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-chokolata",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Chokolata Cafetería",
+    "categoria": "Café",
+    "descuento": "Hasta 40%",
+    "dias": [
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Villarrica",
+    "regional": true,
+    "desde": "2026-08-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-chuck-e-cheese",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Chuck E. Cheese",
+    "categoria": "Entretención",
+    "descuento": "40%",
+    "dias": [
+      4
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-cinemark",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Cinemark",
+    "categoria": "Entretención",
+    "descuento": "20%",
+    "detalle": "En combo Banco Falabella.",
+    "dias": [
+      1,
+      2,
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "RM y Los Lagos",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-clinica-belenus",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Clínica Belenus",
+    "categoria": "Salud y belleza",
+    "descuento": "40%",
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-color-run",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "The Color Run",
+    "categoria": "Entretención",
+    "descuento": "15%",
+    "detalle": "Descuento en venta general.",
+    "canal": "Presencial",
+    "ubicacion": "Santiago",
+    "desde": "2026-09-03",
+    "hasta": "2026-11-09",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-cuponera-elite",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Cuponera Elite",
+    "categoria": "Compras",
+    "descuento": "Hasta 40%",
+    "detalle": "Beneficios Elite del mes, exclusivos con CMR Elite.",
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-05",
+    "hasta": "2027-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-cuponera-generica",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Cuponera: beneficios del mes",
+    "categoria": "Compras",
+    "descuento": "Hasta 50%",
+    "detalle": "Exclusivo con tus tarjetas Banco Falabella.",
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-06-01",
+    "hasta": "2027-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-dia-d-carnes",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Día D: carnes de vacuno",
+    "categoria": "Supermercado",
+    "descuento": "20%",
+    "detalle": "Todos los miércoles.",
+    "dias": [
+      3
+    ],
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-10-20",
+    "hasta": "2027-10-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-dia-d-pollo-pavo",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Día D: pollo y pavo",
+    "categoria": "Supermercado",
+    "descuento": "20%",
+    "detalle": "Todos los martes.",
+    "dias": [
+      2
+    ],
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-10-20",
+    "hasta": "2027-10-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-diario-financiero",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Diario Financiero",
+    "categoria": "Servicios",
+    "descuento": "Hasta 60%",
+    "detalle": "Suscripción anual y mensual.",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-dogin",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Dogin",
+    "categoria": "Mascotas",
+    "descuento": "15%",
+    "detalle": "Exclusivo en la app.",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-dr-pet",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Dr. Pet",
+    "categoria": "Mascotas",
+    "descuento": "20%",
+    "dias": [
+      4
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "RM y Coquimbo",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-dunkin",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Dunkin'",
+    "categoria": "Café",
+    "descuento": "40%",
+    "dias": [
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-enigma-cafe",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Enigma Café",
+    "categoria": "Café",
+    "descuento": "40%",
+    "dias": [
+      1
+    ],
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-08-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
     "id": "cmr-envios",
     "categoria": "Compras",
     "comercio": "3 despachos gratis al mes",
@@ -122,6 +525,130 @@
     "verificado": false
   },
   {
+    "id": "cmr-estacionamiento-aeropuerto",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Estacionamiento Aeropuerto",
+    "categoria": "Servicios",
+    "descuento": "30%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-extraordinario-circo",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "El Extraordinario Circo",
+    "categoria": "Entretención",
+    "descuento": "30%",
+    "detalle": "Todas las funciones.",
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Santiago",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-family-park",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Family Park",
+    "categoria": "Entretención",
+    "descuento": "40%",
+    "dias": [
+      4
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-farmacias-ahumada",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Farmacias Ahumada",
+    "categoria": "Salud y belleza",
+    "descuento": "25%",
+    "detalle": "En medicamentos.",
+    "dias": [
+      6,
+      0,
+      1
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-flores-de-ocoa",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Flores de Ocoa",
+    "categoria": "Compras",
+    "descuento": "40%",
+    "detalle": "Online en ramos y arreglos.",
+    "dias": [
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-funpark",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Funpark",
+    "categoria": "Entretención",
+    "descuento": "40%",
+    "detalle": "Entrada general.",
+    "dias": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
     "id": "cmr-internacional",
     "categoria": "Viajes",
     "comercio": "0% comisión en compras internacionales",
@@ -132,6 +659,23 @@
     ],
     "tipo": "permanente",
     "verificado": false
+  },
+  {
+    "id": "cmr-invisalign",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Invisalign",
+    "categoria": "Salud y belleza",
+    "descuento": "20%",
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
   },
   {
     "id": "cmr-juan-valdez",
@@ -152,6 +696,63 @@
     "verificado": true
   },
   {
+    "id": "cmr-jumpin",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Jumpin",
+    "categoria": "Entretención",
+    "descuento": "30%",
+    "dias": [
+      1,
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "RM y Los Lagos",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-leonidas",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Leonidas",
+    "categoria": "Alimentación",
+    "descuento": "40%",
+    "dias": [
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-lipigas",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Lipigas",
+    "categoria": "Servicios",
+    "descuento": "Hasta $8.000 de descuento",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
     "id": "cmr-maletas",
     "categoria": "Viajes",
     "comercio": "2 maletas gratis al año",
@@ -164,6 +765,114 @@
     "verificado": true
   },
   {
+    "id": "cmr-mcparking",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "McParking",
+    "categoria": "Servicios",
+    "descuento": "30%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-mumbai",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Mumbai",
+    "categoria": "Salud y belleza",
+    "descuento": "Hasta 40%",
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-okparking",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "OkParking",
+    "categoria": "Servicios",
+    "descuento": "25%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-pacific-club",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Salón VIP Pacific Club",
+    "categoria": "Viajes",
+    "descuento": "2 ingresos dobles al año",
+    "detalle": "Salón VIP nacional, exclusivo CMR Elite.",
+    "canal": "Presencial",
+    "ubicacion": "Aeropuertos",
+    "desde": "2025-01-01",
+    "hasta": "2027-01-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-palumbo",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Palumbo",
+    "categoria": "Salud y belleza",
+    "descuento": "40%",
+    "dias": [
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-panales-falabella",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Falabella: pañales",
+    "categoria": "Compras",
+    "descuento": "20% adicional",
+    "detalle": "Online, en todo pañales.",
+    "dias": [
+      2
+    ],
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-04-09",
+    "hasta": "2026-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
     "id": "cmr-parking",
     "categoria": "Servicios",
     "comercio": "Estacionamiento gratis en Mallplaza",
@@ -174,6 +883,160 @@
     ],
     "tipo": "permanente",
     "verificado": false
+  },
+  {
+    "id": "cmr-petsmann",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Petsmann",
+    "categoria": "Mascotas",
+    "descuento": "20%",
+    "dias": [
+      1
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-primeclass-elite",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "VIP Primeclass",
+    "categoria": "Viajes",
+    "descuento": "2 ingresos gratis al año",
+    "detalle": "Exclusivo CMR Elite.",
+    "canal": "Presencial",
+    "ubicacion": "Aeropuerto de Santiago",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-prosegur",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Prosegur",
+    "categoria": "Servicios",
+    "descuento": "Hasta 65%",
+    "detalle": "Exclusivo tarjeta CMR.",
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-rustik-coffee",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Rustik Coffee",
+    "categoria": "Café",
+    "descuento": "40%",
+    "dias": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-07-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-sana-salud",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Sana Salud",
+    "categoria": "Salud y belleza",
+    "descuento": "Hasta 50%",
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "RM, Valparaíso y O'Higgins",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-shell-combustible",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Shell",
+    "categoria": "Combustible",
+    "descuento": "$100 de descuento por litro",
+    "detalle": "Descuento en combustible.",
+    "dias": [
+      3
+    ],
+    "tope": "Hasta 70 litros",
+    "canal": "Presencial",
+    "ubicacion": "Varias ciudades",
+    "desde": "2026-11-02",
+    "hasta": "2026-11-30",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-skin-fit",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Skin Fit",
+    "categoria": "Salud y belleza",
+    "descuento": "40%",
+    "detalle": "Exclusivo CMR Elite.",
+    "dias": [
+      1
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-south-bites",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "South Bites",
+    "categoria": "Mascotas",
+    "descuento": "20%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
   },
   {
     "id": "cmr-superzoo",
@@ -194,6 +1057,46 @@
     "verificado": true
   },
   {
+    "id": "cmr-suplementos-falabella",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Falabella: suplementos",
+    "categoria": "Salud y belleza",
+    "descuento": "20% adicional",
+    "detalle": "Online, en todo suplementos.",
+    "dias": [
+      4
+    ],
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-04-09",
+    "hasta": "2026-12-31",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-take-a-break",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Take a Break",
+    "categoria": "Alimentación",
+    "descuento": "20%",
+    "dias": [
+      2
+    ],
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
     "id": "cmr-traslados",
     "categoria": "Viajes",
     "comercio": "2 traslados al aeropuerto gratis al año",
@@ -204,6 +1107,61 @@
     ],
     "tipo": "permanente",
     "verificado": true
+  },
+  {
+    "id": "cmr-turbus",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Turbus",
+    "categoria": "Viajes",
+    "descuento": "25%",
+    "dias": [
+      3
+    ],
+    "tope": "Sin tope",
+    "canal": "Presencial y online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-vina-sutil",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Viña Sutil",
+    "categoria": "Alimentación",
+    "descuento": "40%",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Todo Chile",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
+  },
+  {
+    "id": "cmr-whoosh",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "comercio": "Whoosh",
+    "categoria": "Servicios",
+    "descuento": "20%",
+    "detalle": "En 10 viajes.",
+    "tope": "Sin tope",
+    "canal": "Online",
+    "ubicacion": "Región Metropolitana",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-01",
+    "tipo": "promo",
+    "verificado": true,
+    "fuente": "https://www.bancofalabella.cl/descuentos/todos"
   },
   {
     "id": "go-convenios",
