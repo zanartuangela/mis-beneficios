@@ -122,6 +122,11 @@ a.btn{align-self:flex-start}
 .perk strong{font-weight:600}
 .perk span{color:var(--muted);font-size:.86rem}
 .cardactions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bform{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.bform input,.bform select{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:9px 12px;font:inherit;min-width:0;width:100%}
+.dayspick{display:flex;gap:6px 10px;flex-wrap:wrap;font-size:.82rem}
+.dayspick label{display:flex;align-items:center;gap:4px}
+.dayspick input{width:auto}
 .mes-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .mes-head h2{font-family:var(--display);font-weight:600;font-size:2rem;margin:0;text-transform:capitalize;line-height:1}
 .mes-head button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:1.3rem;line-height:1;cursor:pointer}
@@ -211,7 +216,17 @@ footer{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);paddi
     <div class="wallet" id="wallet"></div>
     <div id="perksArea" class="block"></div>
     <p class="note" id="ocultasNota"></p>
-    <p class="note">Para agregar una tarjeta nueva, pídele a Claude que la sume a la carpeta de datos y vuelva a publicar la app.</p>
+    <form class="add" id="tForm">
+      <h3>Agregar una tarjeta</h3>
+      <label>Nombre<input id="tNombre" required placeholder="Ej: Santander Life"></label>
+      <label>Banco o emisor<input id="tEmisor" required placeholder="Ej: Santander"></label>
+      <label>Tipo<select id="tTipo"><option value="credito">Crédito</option><option value="debito">Débito</option><option value="alimentacion">Alimentación / vale</option><option value="fidelidad">Programa de puntos</option></select></label>
+      <label>Color<select id="tColor"><option value="#4E0F22">Vino</option><option value="#6F6228">Oliva</option><option value="#B5613A">Terracota</option><option value="#3B2A1E">Café</option><option value="#2F4A5C">Azul petróleo</option><option value="#5A3B6E">Ciruela</option></select></label>
+      <button class="btn primary" type="submit">Agregar tarjeta</button>
+      <div class="status" id="tStatus" role="status"></div>
+      <p class="note">La tarjeta y los beneficios que anotes se guardan en este dispositivo. Para que sus beneficios se carguen solos cada mes, copia el mensaje y pégaselo a Claude.</p>
+      <button type="button" class="btn" id="tCopiar">Copiar mensaje para Claude</button>
+    </form>
   </section>
 
   <section id="vPluxee" class="block" hidden>
@@ -264,8 +279,8 @@ const slugF=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/
 
 const now=new Date();
 const S={
-  tarjetas:[...DATA.tarjetas].sort((a,b)=>(a.orden??99)-(b.orden??99)),
-  beneficios:DATA.beneficios,
+  tarjetas:[],beneficios:[],
+  misT:ls.get("mb-mis-tarjetas",[]),misB:ls.get("mb-mis-benef",[]),addB:null,
   meta:DATA.meta,
   vista:ls.get("mb-vista","dia"),
   dia:now.getDay(),
@@ -278,6 +293,13 @@ const S={
   confirmar:null
 };
 if(!["dia","mes","todas","tarjetas","pluxee"].includes(S.vista))S.vista="dia";
+/* Las tarjetas y beneficios que agrega la usuaria viven en este dispositivo y se suman a los de data/. */
+function rebuild(){
+  S.tarjetas=[...DATA.tarjetas,...S.misT].sort((a,b)=>(a.orden??99)-(b.orden??99));
+  S.beneficios=[...DATA.beneficios,...S.misB];
+}
+rebuild();
+const guardaMis=()=>{ls.set("mb-mis-tarjetas",S.misT);ls.set("mb-mis-benef",S.misB);rebuild()};
 
 const tarjetaPorId=id=>S.tarjetas.find(t=>t.id===id);
 const activas=()=>S.tarjetas.filter(t=>!S.hidden.has(t.id));
@@ -433,6 +455,18 @@ function renderMes(){
 }
 
 /* ---------- Tarjetas ---------- */
+function bformHTML(t){
+  return `<form class="bform" id="bForm" data-card="${esc(t.id)}">
+    <input id="bComercio" required placeholder="Comercio o beneficio (ej. Starbucks)" aria-label="Comercio o beneficio">
+    <input id="bDcto" placeholder="Descuento (ej. 20%). Vacío = beneficio fijo" aria-label="Descuento">
+    <select id="bCat" aria-label="Categoría">${["Restaurantes","Café","Supermercado","Compras","Viajes","Servicios","Otros"].map(c=>`<option>${c}</option>`).join("")}</select>
+    <div class="dayspick" role="group" aria-label="Días que aplica">${[1,2,3,4,5,6,0].map(d=>`<label><input type="checkbox" name="bdia" value="${d}"> ${DIAS[d]}</label>`).join("")}</div>
+    <p class="note">Sin días marcados significa todos los días.</p>
+    <input id="bHasta" type="date" aria-label="Vence (opcional)">
+    <input id="bDetalle" placeholder="Nota (opcional)" aria-label="Nota">
+    <div class="cardactions"><button class="btn primary" type="submit">Guardar</button><button type="button" class="btn" data-bcancel="1">Cancelar</button></div>
+  </form>`;
+}
 function renderWallet(){
   const ts=activas();
   const cuenta=t=>S.beneficios.filter(b=>b.tipo!=="permanente"&&vigente(b)&&(b.tarjetas||[]).includes(t.id)).length;
@@ -442,15 +476,18 @@ function renderWallet(){
       <div class="rw"><span class="n">${esc(t.nombre)}</span><span class="k">${cuenta(t)} ofertas</span></div>
     </div>`).join(""):`<div class="empty">Todas tus tarjetas están ocultas. Muéstralas de nuevo abajo.</div>`;
   $("perksArea").innerHTML=ts.map(t=>{
-    const ps=S.beneficios.filter(b=>b.tipo==="permanente"&&(b.tarjetas||[]).includes(t.id));
+    const ps=S.beneficios.filter(b=>(b.tipo==="permanente"||b.propia)&&(b.tarjetas||[]).includes(t.id));
     const confirm=S.confirmar===t.id;
     return `<div class="perks">
       <h4>${esc(t.nombre)} · beneficios fijos</h4>
-      ${ps.length?ps.map(p=>`<div class="perk"><strong>${esc(p.comercio)}</strong><span>${esc(p.detalle||"")}${p.verificado===false?" · confirmar en el banco":""}</span>${p.fuente?`<span class="src"><a href="${esc(p.fuente)}" target="_blank" rel="noopener">Ver fuente</a></span>`:""}</div>`).join(""):`<div class="perk"><span>Sin beneficios fijos registrados.</span></div>`}
+      ${t.propia&&!ps.length?`<div class="perk"><span>Aún no tiene beneficios. Anota los tuyos con el botón de abajo, o se cargarán en la próxima actualización si se lo pides a Claude.</span></div>`:""}
+      ${ps.length?ps.map(p=>`<div class="perk"><strong>${esc(p.comercio)}</strong><span>${esc([p.tipo==="promo"?pctDe(p):"",p.tipo==="promo"?diasTxt(p):"",p.hasta?"hasta "+fmt(p.hasta):"",p.detalle].filter(Boolean).join(" · "))}${p.verificado===false?" · confirmar en el banco":""}</span>${p.fuente?`<span class="src"><a href="${esc(p.fuente)}" target="_blank" rel="noopener">Ver fuente</a></span>`:""}${p.propia?`<button type="button" class="linkbtn" data-delb="${esc(p.id)}">Quitar</button>`:""}</div>`).join(""):(t.propia?"":`<div class="perk"><span>Sin beneficios fijos registrados.</span></div>`)}
       <div class="cardactions">
         <button type="button" class="btn primary" data-ver="${esc(t.id)}">Ver sus ${cuenta(t)} ofertas</button>
-        ${confirm?`<span class="note">¿Ocultar ${esc(t.nombre)}?</span><button type="button" class="btn danger" data-ocultar="${esc(t.id)}">Sí, ocultar</button><button type="button" class="btn" data-cancel="1">Cancelar</button>`:`<button type="button" class="btn" data-ask="${esc(t.id)}">Ya no la uso</button>`}
-      </div></div>`}).join("");
+        ${t.propia?`<button type="button" class="btn" data-addb="${esc(t.id)}">Agregar beneficio</button>`:""}
+        ${confirm?`<span class="note">¿${t.propia?"Quitar":"Ocultar"} ${esc(t.nombre)}?</span><button type="button" class="btn danger" data-ocultar="${esc(t.id)}">Sí, ${t.propia?"quitar":"ocultar"}</button><button type="button" class="btn" data-cancel="1">Cancelar</button>`:`<button type="button" class="btn" data-ask="${esc(t.id)}">${t.propia?"Quitar tarjeta":"Ya no la uso"}</button>`}
+      </div>
+      ${S.addB===t.id?bformHTML(t):""}</div>`}).join("");
   const ocultas=S.tarjetas.filter(t=>S.hidden.has(t.id));
   $("ocultasNota").innerHTML=ocultas.length?"Ocultas: "+ocultas.map(t=>`${esc(t.nombre)} <button type="button" class="linkbtn" data-mostrar="${esc(t.id)}">mostrar</button>`).join(" · "):"";
 }
@@ -537,8 +574,46 @@ $("perksArea").addEventListener("click",e=>{
   if(d.ver){S.vista="todas";S.tarjeta=d.ver;S.cat="Todas";S.canal="todos";S.soloFav=false;S.soloRM=false;S.q="";$("q").value="";ls.set("mb-vista","todas");render();window.scrollTo({top:0});return}
   if(d.ask){S.confirmar=d.ask}
   if(d.cancel){S.confirmar=null}
-  if(d.ocultar){S.hidden.add(d.ocultar);ls.set("mb-hidden",[...S.hidden]);S.confirmar=null}
+  if(d.addb){S.addB=S.addB===d.addb?null:d.addb}
+  if(d.bcancel){S.addB=null}
+  if(d.delb){S.misB=S.misB.filter(x=>x.id!==d.delb);guardaMis()}
+  if(d.ocultar){
+    const propia=S.misT.some(x=>x.id===d.ocultar);
+    if(propia){S.misT=S.misT.filter(x=>x.id!==d.ocultar);S.misB=S.misB.filter(x=>!(x.tarjetas||[]).includes(d.ocultar));guardaMis();if(S.tarjeta===d.ocultar)S.tarjeta="todas"}
+    else{S.hidden.add(d.ocultar);ls.set("mb-hidden",[...S.hidden])}
+    S.confirmar=null;
+  }
   render();
+});
+$("perksArea").addEventListener("submit",e=>{
+  const f=e.target.closest("#bForm");if(!f)return;
+  e.preventDefault();
+  const comercio=$("bComercio").value.trim();if(!comercio)return;
+  const dcto=$("bDcto").value.trim();
+  const dias=[...f.querySelectorAll('input[name="bdia"]:checked')].map(x=>+x.value);
+  const b={id:"mi-b-"+Date.now(),propia:true,tarjetas:[f.dataset.card],comercio,categoria:$("bCat").value,tipo:dcto?"promo":"permanente",verificado:true};
+  if(dcto)b.descuento=/%/.test(dcto)?dcto:(/^\d+$/.test(dcto)?dcto+"%":dcto);
+  if(dcto)b.dias=dias;
+  if($("bHasta").value)b.hasta=$("bHasta").value;
+  if($("bDetalle").value.trim())b.detalle=$("bDetalle").value.trim();
+  S.misB.push(b);guardaMis();S.addB=null;render();
+});
+$("tForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const nombre=$("tNombre").value.trim(),emisor=$("tEmisor").value.trim();if(!nombre||!emisor)return;
+  let id="mi-"+slugF(emisor+"-"+nombre);
+  if(S.tarjetas.some(t=>t.id===id))id+="-"+Date.now();
+  S.misT.push({id,nombre,emisor,tipo:$("tTipo").value,color:$("tColor").value,orden:100+S.misT.length,propia:true});
+  guardaMis();S.addB=id;
+  $("tStatus").textContent="Agregada: "+nombre+". Anota sus beneficios más arriba.";
+  e.target.reset();render();
+});
+$("tCopiar").addEventListener("click",async()=>{
+  const n=$("tNombre").value.trim()||(S.misT.length?S.misT[S.misT.length-1].nombre:"[nombre de la tarjeta]");
+  const em=$("tEmisor").value.trim()||(S.misT.length?S.misT[S.misT.length-1].emisor:"[banco]");
+  const msg=`Agrega la tarjeta «${n}» de ${em} a Mis Beneficios (carpeta C:\\Users\\demet\\Mis Beneficios): súmala a data/tarjetas.json, busca sus beneficios y descuentos vigentes en Chile, corre node build.mjs y súbelo a GitHub.`;
+  try{await navigator.clipboard.writeText(msg);$("tStatus").textContent="Mensaje copiado. Pégalo en Claude."}
+  catch(err){$("tStatus").textContent=msg}
 });
 $("ocultasNota").addEventListener("click",e=>{
   const t=e.target.closest("button");if(!t||!t.dataset.mostrar)return;
