@@ -1,0 +1,6 @@
+[
+  { "id": "cmr-elite-black", "nombre": "CMR Elite Black", "emisor": "Banco Falabella", "tipo": "credito", "color": "#3B2A1E", "orden": 1 },
+  { "id": "bice-visa-infinite", "nombre": "Visa Infinite", "emisor": "Banco BICE", "tipo": "credito", "color": "#4E0F22", "orden": 2 },
+  { "id": "go-bice", "nombre": "Go BICE", "emisor": "Banco BICE", "tipo": "debito", "color": "#B5613A", "orden": 3 },
+  { "id": "pluxee", "nombre": "Pluxee", "emisor": "Pluxee Chile", "tipo": "alimentacion", "color": "#6F6228", "orden": 4 }
+]

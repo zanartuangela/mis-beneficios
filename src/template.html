@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mis Beneficios</title>
+<meta name="description" content="Descuentos y beneficios de mis tarjetas, por día, mes y tarjeta.">
+<meta name="theme-color" content="#4E0F22">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mis Beneficios">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna tipo billetera. Selector de día arriba, filtros en chips, ofertas como vales que se expanden.
+   Paleta de la referencia de Pinterest: oliva dorado, terracota, vino profundo y crema cálida; serif editorial en cursiva. */
+:root{
+  --bg:#F3ECE1; --surface:#FBF7F0; --sunk:#E9DFCF; --fg:#2E0E17; --muted:#7A675A; --line:#DDD0BC;
+  --accent:#5A1128; --accent-ink:#FBF1E4; --accent-soft:#EAD3C3;
+  --pct-bg:#B5613A; --pct-fg:#FCF2E6;
+  --warn:#6F5F1A; --warn-soft:#EDE3B8; --danger:#A3302A;
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1D0A10; --surface:#2A1119; --sunk:#371A23; --fg:#F2E7D7; --muted:#B8A391; --line:#4A2631;
+  --accent:#E09A72; --accent-ink:#2A0C14; --accent-soft:#4A2B24;
+  --pct-bg:#8F4A2E; --pct-fg:#FCEBDC;
+  --warn:#D2BE63; --warn-soft:#3A3217; --danger:#F08A82; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#1D0A10; --surface:#2A1119; --sunk:#371A23; --fg:#F2E7D7; --muted:#B8A391; --line:#4A2631;
+  --accent:#E09A72; --accent-ink:#2A0C14; --accent-soft:#4A2B24;
+  --pct-bg:#8F4A2E; --pct-fg:#FCEBDC;
+  --warn:#D2BE63; --warn-soft:#3A3217; --danger:#F08A82; color-scheme:dark }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:flex;flex-direction:column;gap:16px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:600;font-size:2.7rem;letter-spacing:-.01em;margin:0;line-height:.95}
+h1 em{font-style:italic;font-weight:500;color:var(--pct-bg)}
+.sub{color:var(--muted);font-size:.85rem;margin-top:6px}
+nav.tabs{display:flex;background:var(--sunk);border-radius:999px;padding:4px;gap:4px;position:sticky;top:max(8px,env(safe-area-inset-top,0px));z-index:5}
+nav.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font:600 .82rem var(--body);padding:9px 4px;border-radius:999px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.block{display:flex;flex-direction:column;gap:12px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.days button{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;padding:7px 0;cursor:pointer;font:600 .8rem var(--body);display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0}
+.days button small{font-weight:500;color:var(--muted);font-size:.68rem;font-variant-numeric:tabular-nums}
+.days button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.days button[aria-pressed="true"] small{color:var(--accent-ink);opacity:.85}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;font:500 .82rem var(--body);cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.row{display:flex;gap:8px;align-items:center}
+.search,.sel{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:12px;padding:10px 14px;font:inherit;min-width:0}
+.search{flex:1}
+.count{color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.linkbtn{border:0;background:none;color:var(--accent);font:600 .82rem var(--body);cursor:pointer;padding:0;text-decoration:underline}
+.list{display:flex;flex-direction:column;gap:10px}
+.offer{display:grid;grid-template-columns:88px 1fr;background:var(--surface);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);cursor:pointer}
+.pct{background:var(--pct-bg);color:var(--pct-fg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px;text-align:center;border-right:2px dashed var(--bg)}
+.pct b{font-family:var(--display);font-weight:700;font-size:2.3rem;line-height:.9;font-variant-numeric:tabular-nums}
+.pct span{font-family:var(--display);font-style:italic;font-size:1rem;margin-bottom:2px}
+.offer .body{padding:11px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.offer .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.offer h3{margin:0;font-family:var(--display);font-weight:700;font-size:1.35rem;line-height:1.1}
+.offer .line{color:var(--muted);font-size:.84rem}
+.offer .line .soon{color:var(--warn);font-weight:600}
+.offer .more{display:none;flex-direction:column;gap:8px;padding-top:4px}
+.offer.open .more{display:flex}
+.offer p{margin:0;color:var(--muted);font-size:.88rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tag{font-size:.74rem;padding:2px 8px;border-radius:6px;background:var(--sunk);color:var(--fg);white-space:nowrap}
+.tag.card{color:#fff}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.soon{background:var(--warn-soft);color:var(--warn);font-weight:600}
+.tag.ok{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.tag.no{background:var(--sunk);color:var(--danger);font-weight:600}
+.tag.elite{background:var(--fg);color:var(--bg);font-weight:600}
+.more-btn{align-self:flex-start;border:0;background:none;color:var(--accent);font:600 .8rem var(--body);padding:0;cursor:pointer}
+.more-btn::after{content:" \25BE"}
+.offer.open .more-btn::after{content:" \25B4"}
+.src{font-size:.78rem;color:var(--muted)}
+.src a{color:var(--accent)}
+.star{border:0;background:transparent;font-size:1.4rem;cursor:pointer;color:var(--muted);padding:0 2px;line-height:1}
+.star[aria-pressed="true"]{color:var(--pct-bg)}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:24px;text-align:center;color:var(--muted)}
+.resumen{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.resumen h3{font-family:var(--display);font-size:1.4rem;font-weight:700;margin:0}
+.best{display:flex;gap:8px;align-items:baseline;font-size:.9rem;min-width:0}
+.best i{width:10px;height:10px;border-radius:50%;flex:none;align-self:center}
+.best b{font-family:var(--display);color:var(--pct-bg);font-size:1.3rem;min-width:3ch;font-variant-numeric:tabular-nums}
+.best span{min-width:0}
+.best small{color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted);margin:0}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:8px 14px;font:600 .85rem var(--body);cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.danger{color:var(--danger)}
+a.btn{align-self:flex-start}
+.wallet{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.cc{border-radius:16px;padding:16px;color:#fff;aspect-ratio:1.586/1;max-width:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cc::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)}
+.cc .k{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;opacity:.8}
+.cc .n{font-family:var(--display);font-weight:600;font-style:italic;font-size:1.6rem;line-height:1.05}
+.cc .rw{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;position:relative;z-index:1}
+.cc .chipgold{width:36px;height:27px;border-radius:6px;background:linear-gradient(135deg,#E9D49A,#B8964C)}
+.perks{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.perks h4{margin:0;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.perk{display:flex;flex-direction:column;gap:2px;padding-top:8px;border-top:1px solid var(--line)}
+.perk:first-of-type{border-top:0;padding-top:0}
+.perk strong{font-weight:600}
+.perk span{color:var(--muted);font-size:.86rem}
+.cardactions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mes-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mes-head h2{font-family:var(--display);font-weight:600;font-size:2rem;margin:0;text-transform:capitalize;line-height:1}
+.mes-head button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:1.3rem;line-height:1;cursor:pointer}
+.mes-head button:disabled{opacity:.3;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.dow{text-align:center;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:4px 0}
+.dc{aspect-ratio:1/1.1;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer;font:inherit;padding:2px;min-width:0}
+.dc b{font-weight:600;font-size:.95rem;font-variant-numeric:tabular-nums}
+.dc small{font-size:.68rem;font-weight:600;color:var(--pct-bg);min-height:.9em;font-variant-numeric:tabular-nums}
+.dc.l1{background:var(--accent-soft)}
+.dc.l2{background:color-mix(in srgb,var(--pct-bg) 35%,var(--surface))}
+.dc.l3{background:color-mix(in srgb,var(--pct-bg) 65%,var(--surface))}
+.dc.l3 b,.dc.l3 small{color:var(--pct-fg)}
+.dc.past{opacity:.55}
+.dc.hoy{outline:2px solid var(--accent);outline-offset:-2px}
+.dc[aria-pressed="true"]{background:var(--accent);border-color:var(--accent)}
+.dc[aria-pressed="true"] b,.dc[aria-pressed="true"] small{color:var(--accent-ink)}
+.sec{font-family:var(--display);font-size:1.5rem;font-weight:700;margin:6px 0 0;text-transform:capitalize}
+.sec.plain{text-transform:none}
+.venc{display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--line);font-size:.9rem}
+.venc:first-of-type{border-top:0;padding-top:0}
+.venc span:last-child{color:var(--muted);white-space:nowrap}
+.px{display:flex;justify-content:space-between;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.px .pxbody{display:flex;flex-direction:column;gap:6px;min-width:0}
+.px h3{margin:0;font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.1}
+.px p{margin:0;color:var(--muted);font-size:.88rem}
+.pxact{display:flex;flex-direction:column;gap:6px;flex:none}
+.pxact .btn{padding:6px 12px;font-size:.8rem}
+form.add{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px}
+form.add h3{margin:0;font-family:var(--display);font-size:1.4rem;font-weight:700}
+form.add label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--muted)}
+form.add input,form.add select{border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:9px 12px;font:inherit}
+.status{font-size:.82rem;min-height:1.2em}
+footer{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:no-preference){.offer{transition:transform .15s}.offer:hover{transform:translateY(-1px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Mis <em>Beneficios</em></h1>
+      <div class="sub" id="hoyTxt"></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Secciones">
+    <button role="tab" id="tab-dia" aria-selected="true" data-v="dia">Por día</button>
+    <button role="tab" id="tab-mes" aria-selected="false" data-v="mes">Mes</button>
+    <button role="tab" id="tab-todas" aria-selected="false" data-v="todas">Todas</button>
+    <button role="tab" id="tab-tarjetas" aria-selected="false" data-v="tarjetas">Tarjetas</button>
+    <button role="tab" id="tab-pluxee" aria-selected="false" data-v="pluxee" hidden>Pluxee</button>
+  </nav>
+
+  <section id="vOfertas" class="block">
+    <div class="resumen" id="resumen" hidden></div>
+    <div class="days" id="days"></div>
+    <div class="row">
+      <input class="search" id="q" type="search" placeholder="Buscar…" autocomplete="off" aria-label="Buscar">
+      <select class="sel" id="orden" aria-label="Ordenar por">
+        <option value="dcto">Mayor descuento</option>
+        <option value="vence">Vence pronto</option>
+        <option value="az">A–Z</option>
+      </select>
+    </div>
+    <div class="chips" id="catChips"></div>
+    <div class="chips" id="cardChips"></div>
+    <div class="chips" id="canalChips"></div>
+    <div class="count"><span id="count"></span><button type="button" class="linkbtn" id="limpiar" hidden>Limpiar filtros</button></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section id="vMes" class="block" hidden>
+    <div class="mes-head">
+      <button type="button" id="mesPrev" aria-label="Mes anterior">&#8249;</button>
+      <h2 id="mesTitulo"></h2>
+      <button type="button" id="mesNext" aria-label="Mes siguiente">&#8250;</button>
+    </div>
+    <div class="cal" id="cal"></div>
+    <p class="note">Más color significa más ofertas ese día. El número chico es el mejor descuento.</p>
+    <div class="block" id="mesDia"></div>
+    <div class="block" id="mesSinDia"></div>
+    <div class="perks" id="mesVencen" hidden></div>
+  </section>
+
+  <section id="vTarjetas" class="block" hidden>
+    <div class="wallet" id="wallet"></div>
+    <div id="perksArea" class="block"></div>
+    <p class="note" id="ocultasNota"></p>
+    <p class="note">Para agregar una tarjeta nueva, pídele a Claude que la sume a la carpeta de datos y vuelva a publicar la app.</p>
+  </section>
+
+  <section id="vPluxee" class="block" hidden>
+    <div class="resumen">
+      <h3>Dónde usar Pluxee</h3>
+      <p class="note">Pluxee tiene más de 10 mil comercios y cambian seguido. Busca el lugar en el buscador oficial y guarda aquí si lo aceptan, así lo tienes a mano. Algunos comercios aceptan solo pago QR o solo tarjeta física: anótalo en la nota.</p>
+      <a class="btn primary" href="https://www.pluxee.cl/merchant-finder/es-CL?merchantTypes=PHYSICAL_AND_ECOM%7CPHYSICAL&amp;pluxeeProducts=PRIVADO" target="_blank" rel="noopener">Abrir buscador de Pluxee</a>
+    </div>
+    <input class="search" id="pxQ" type="search" placeholder="Buscar en mis lugares…" autocomplete="off" aria-label="Buscar en mis lugares">
+    <div class="chips" id="pxChips"></div>
+    <div class="list" id="pxList"></div>
+    <form class="add" id="pxForm">
+      <h3>Guardar un lugar</h3>
+      <label>Nombre del lugar<input id="pxNombre" required placeholder="Ej: Starbucks Costanera"></label>
+      <label>¿La aceptan?<select id="pxEstado"><option value="si">Sí la aceptan</option><option value="no">No la aceptan</option><option value="duda">Por confirmar</option></select></label>
+      <label>Tipo<select id="pxCat"><option>Restaurante</option><option>Café</option><option>Supermercado</option><option>Minimarket</option><option>Casino</option><option>Otro</option></select></label>
+      <label>Nota (opcional)<input id="pxNota" placeholder="Ej: solo con pago QR"></label>
+      <button class="btn primary" type="submit">Guardar</button>
+      <div class="status" id="pxStatus" role="status"></div>
+      <p class="note">Tu lista se guarda en este dispositivo.</p>
+    </form>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA="__DATA__";
+const BUILD="__BUILD__";
+
+const DIAS=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+const DIAS_L=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const MESES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const MESES_L=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const TIPO={credito:"Crédito",debito:"Débito",alimentacion:"Alimentación",fidelidad:"Puntos"};
+const PX_EST={si:"Sí la aceptan",no:"No la aceptan",duda:"Por confirmar"};
+
+const ls={
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const isoF=(y,m,d)=>y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+const hoyISO=()=>{const d=new Date();return isoF(d.getFullYear(),d.getMonth(),d.getDate())};
+const fmt=iso=>{if(!iso)return"";const[y,m,d]=iso.split("-").map(Number);return d+" "+MESES[m-1]+(y!==new Date().getFullYear()?" "+y:"")};
+const diasHasta=iso=>Math.round((new Date(iso+"T12:00")-new Date(hoyISO()+"T12:00"))/864e5);
+const num=p=>{const m=String(p||"").match(/\d+/);return m?+m[0]:0};
+const slugF=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);
+
+const now=new Date();
+const S={
+  tarjetas:[...DATA.tarjetas].sort((a,b)=>(a.orden??99)-(b.orden??99)),
+  beneficios:DATA.beneficios,
+  meta:DATA.meta,
+  vista:ls.get("mb-vista","dia"),
+  dia:now.getDay(),
+  cat:"Todas",tarjeta:"todas",canal:"todos",q:"",orden:ls.get("mb-orden","dcto"),
+  soloFav:false,soloRM:false,
+  favs:new Set(ls.get("mb-favs",[])),
+  hidden:new Set(ls.get("mb-hidden",[])),
+  px:ls.get("mb-px",[]),pxF:"todos",pxQ:"",pxDel:null,
+  mes:{y:now.getFullYear(),m:now.getMonth()},mesDia:null,
+  confirmar:null
+};
+if(!["dia","mes","todas","tarjetas","pluxee"].includes(S.vista))S.vista="dia";
+
+const tarjetaPorId=id=>S.tarjetas.find(t=>t.id===id);
+const activas=()=>S.tarjetas.filter(t=>!S.hidden.has(t.id));
+const vigente=b=>!b.hasta||b.hasta>=hoyISO();
+function idsActivas(){return new Set(activas().map(t=>t.id))}
+function ofertas(){
+  const ids=idsActivas();
+  return S.beneficios.filter(b=>b.tipo!=="permanente"&&vigente(b)&&(b.tarjetas||[]).some(id=>ids.has(id)));
+}
+const aplicaDia=(b,dia)=>!Array.isArray(b.dias)||b.dias.length===0||b.dias.includes(dia);
+function diasTxt(b){
+  if(!Array.isArray(b.dias))return"Días por confirmar";
+  if(b.dias.length===0||b.dias.length===7)return"Todos los días";
+  return b.dias.map(d=>DIAS[d]).join(", ");
+}
+const pctDe=b=>{const m=String(b.descuento||"").match(/\d+\s*%/);return m?m[0].replace(/\s/g,""):String(b.descuento||"").trim()};
+const guardaFavs=()=>ls.set("mb-favs",[...S.favs]);
+
+/* ---------- Por día / Todas ---------- */
+function renderDays(){
+  const hoy=now.getDay(),base=ofertas();
+  $("days").innerHTML=[1,2,3,4,5,6,0].map(d=>{
+    const n=base.filter(b=>aplicaDia(b,d)).length;
+    return `<button type="button" data-d="${d}" aria-pressed="${S.dia===d}" aria-label="${DIAS_L[d]}: ${n} ofertas">${DIAS[d]}<small>${d===hoy?"hoy · ":""}${n}</small></button>`}).join("");
+}
+
+function filtradas(){
+  let xs=ofertas();
+  if(S.vista==="dia")xs=xs.filter(b=>aplicaDia(b,S.dia)&&(!b.desde||b.desde<=hoyISO()||S.dia!==now.getDay()));
+  if(S.cat!=="Todas")xs=xs.filter(b=>b.categoria===S.cat);
+  if(S.tarjeta!=="todas")xs=xs.filter(b=>(b.tarjetas||[]).includes(S.tarjeta));
+  if(S.canal!=="todos")xs=xs.filter(b=>(b.canal||"").toLowerCase().includes(S.canal.toLowerCase()));
+  if(S.soloFav)xs=xs.filter(b=>S.favs.has(b.id));
+  if(S.soloRM)xs=xs.filter(b=>!b.regional);
+  if(S.q){const q=S.q.toLowerCase();xs=xs.filter(b=>(b.comercio+" "+b.categoria+" "+(b.detalle||"")+" "+(b.ubicacion||"")).toLowerCase().includes(q))}
+  const conocido=b=>Array.isArray(b.dias)?0:1;
+  const porDcto=(a,b)=>num(b.descuento)-num(a.descuento);
+  return xs.sort((a,b)=>{
+    if(S.orden==="az")return a.comercio.localeCompare(b.comercio);
+    if(S.orden==="vence")return (a.hasta||"9999").localeCompare(b.hasta||"9999")||porDcto(a,b)||a.comercio.localeCompare(b.comercio);
+    return conocido(a)-conocido(b)||porDcto(a,b)||a.comercio.localeCompare(b.comercio);
+  });
+}
+
+function hayFiltros(){return S.cat!=="Todas"||S.tarjeta!=="todas"||S.canal!=="todos"||S.soloFav||S.soloRM||!!S.q}
+
+function renderChips(){
+  const base=ofertas();
+  const cats=["Todas",...[...new Set(base.map(b=>b.categoria))].sort()];
+  if(!cats.includes(S.cat))S.cat="Todas";
+  $("catChips").innerHTML=cats.map(c=>`<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="${S.cat===c}">${esc(c)}</button>`).join("");
+  const ts=activas();
+  if(S.tarjeta!=="todas"&&!ts.some(t=>t.id===S.tarjeta))S.tarjeta="todas";
+  $("cardChips").innerHTML=`<button type="button" class="chip" data-rm="1" aria-pressed="${S.soloRM}">Solo Santiago</button>`+
+    `<button type="button" class="chip" data-fav-filter="1" aria-pressed="${S.soloFav}">&#9733; Favoritas</button>`+
+    `<button type="button" class="chip" data-card="todas" aria-pressed="${S.tarjeta==="todas"}">Todas las tarjetas</button>`+
+    ts.map(t=>`<button type="button" class="chip" data-card="${esc(t.id)}" aria-pressed="${S.tarjeta===t.id}">${esc(t.nombre)}</button>`).join("");
+  $("canalChips").innerHTML=[["todos","Todos los canales"],["Presencial","Presencial"],["Online","Online"],["Delivery","Delivery"]].map(([k,l])=>`<button type="button" class="chip" data-canal="${k}" aria-pressed="${S.canal===k}">${l}</button>`).join("");
+}
+
+function tagTarjetas(b){
+  return(b.tarjetas||[]).map(tarjetaPorId).filter(t=>t&&!S.hidden.has(t.id))
+    .map(t=>`<span class="tag card" style="background:${esc(t.color||"#334")}">${esc(t.nombre)}</span>`).join("");
+}
+
+function ofertaHTML(b){
+  const d=b.hasta?diasHasta(b.hasta):null;
+  const fav=S.favs.has(b.id);
+  const soon=d!==null&&d<=7;
+  const venceTxt=b.hasta?(soon?`<span class="soon">Vence ${d===0?"hoy":d===1?"mañana":"en "+d+" días"}</span>`:`Hasta el ${fmt(b.hasta)}`):"";
+  const desde=b.desde&&b.desde>hoyISO()?`Desde el ${fmt(b.desde)}`:"";
+  const linea=[diasTxt(b),b.ubicacion?esc(b.ubicacion):"",desde,venceTxt].filter(Boolean).join(" · ");
+  const pct=pctDe(b),pre=/hasta/i.test(String(b.descuento))?"hasta":"dcto";
+  let host="";try{host=b.fuente?new URL(b.fuente).hostname.replace(/^www\./,""):""}catch(e){}
+  return `<article class="offer" data-id="${esc(b.id)}">
+    <div class="pct"><span>${pre}</span><b>${esc(pct||"✓")}</b></div>
+    <div class="body">
+      <div class="top"><h3>${esc(b.comercio)}</h3><button type="button" class="star" data-fav="${esc(b.id)}" aria-pressed="${fav}" aria-label="Marcar como favorita">${fav?"&#9733;":"&#9734;"}</button></div>
+      <div class="meta">${tagTarjetas(b)}${b.elite?`<span class="tag elite">Elite</span>`:""}</div>
+      <div class="line">${linea}</div>
+      <div class="more">
+        ${b.detalle?`<p>${esc(b.detalle)}</p>`:""}
+        <div class="meta">
+          <span class="tag">${esc(b.categoria)}</span>
+          ${b.canal?`<span class="tag">${esc(b.canal)}</span>`:""}
+          ${b.tope?`<span class="tag">Tope: ${esc(b.tope)}</span>`:""}
+          ${Array.isArray(b.dias)?"":`<span class="tag warn">Días por confirmar</span>`}
+          ${b.verificado===false?`<span class="tag warn">Confirmar en el banco</span>`:""}
+        </div>
+        ${b.fuente?`<div class="src">Fuente: <a href="${esc(b.fuente)}" target="_blank" rel="noopener">${esc(host||"ver")}</a></div>`:""}
+      </div>
+      <button type="button" class="more-btn" aria-label="Ver detalle de ${esc(b.comercio)}">Detalle</button>
+    </div></article>`;
+}
+
+function renderList(){
+  const xs=filtradas();
+  const lbl=S.vista==="dia"?(S.dia===now.getDay()?"hoy":"el "+DIAS_L[S.dia]):"en total";
+  $("count").textContent=xs.length+(xs.length===1?" oferta ":" ofertas ")+lbl;
+  $("limpiar").hidden=!hayFiltros();
+  $("days").hidden=S.vista!=="dia";
+  if(!xs.length){$("list").innerHTML=`<div class="empty">No hay ofertas con estos filtros. Prueba otro día u otra categoría.</div>`;return}
+  $("list").innerHTML=xs.map(ofertaHTML).join("");
+}
+
+function renderResumen(){
+  const el=$("resumen"),hoy=now.getDay();
+  if(S.vista!=="dia"||S.dia!==hoy||S.q){el.hidden=true;return}
+  let base=ofertas();
+  const soon=base.filter(b=>b.hasta&&diasHasta(b.hasta)<=7).length;
+  const hoyOf=base.filter(b=>Array.isArray(b.dias)&&aplicaDia(b,hoy)&&(!b.desde||b.desde<=hoyISO())&&!(S.soloRM&&b.regional));
+  const filas=activas().map(t=>{
+    const xs=hoyOf.filter(b=>(b.tarjetas||[]).includes(t.id)).sort((a,b)=>num(b.descuento)-num(a.descuento));
+    return xs.length?{t,b:xs[0],mas:xs.length-1}:null}).filter(Boolean);
+  if(!filas.length&&!soon){el.hidden=true;return}
+  el.hidden=false;
+  el.innerHTML=(filas.length?`<h3>Lo mejor de hoy</h3>`+filas.map(({t,b,mas})=>`<div class="best"><i style="background:${esc(t.color)}"></i><b>${esc(pctDe(b))}</b><span>${esc(b.comercio)} <small>· ${esc(t.nombre)}${mas?` · +${mas} más`:""}</small></span></div>`).join(""):"")+
+    (soon?`<div class="note">${soon} ${soon===1?"oferta vence":"ofertas vencen"} en los próximos 7 días.</div>`:"");
+}
+
+/* ---------- Mes ---------- */
+function ofertasEnFecha(iso,dow){
+  const ids=idsActivas();
+  return S.beneficios.filter(b=>b.tipo!=="permanente"&&(b.tarjetas||[]).some(id=>ids.has(id))&&(!b.desde||b.desde<=iso)&&(!b.hasta||b.hasta>=iso)&&Array.isArray(b.dias)&&(b.dias.length===0||b.dias.includes(dow)))
+    .sort((a,b)=>num(b.descuento)-num(a.descuento));
+}
+function renderMes(){
+  const{y,m}=S.mes,hoy=hoyISO();
+  const cur=now.getFullYear()*12+now.getMonth(),sel=y*12+m;
+  $("mesTitulo").textContent=MESES_L[m]+" "+y;
+  $("mesPrev").disabled=sel<=cur;$("mesNext").disabled=sel>=cur+1;
+  const dim=new Date(y,m+1,0).getDate(),off=(new Date(y,m,1).getDay()+6)%7;
+  if(!S.mesDia||S.mesDia.slice(0,7)!==isoF(y,m,1).slice(0,7))S.mesDia=(hoy.slice(0,7)===isoF(y,m,1).slice(0,7))?hoy:isoF(y,m,1);
+  let h=["L","M","M","J","V","S","D"].map(x=>`<div class="dow">${x}</div>`).join("");
+  for(let i=0;i<off;i++)h+="<div></div>";
+  for(let d=1;d<=dim;d++){
+    const iso=isoF(y,m,d),xs=ofertasEnFecha(iso,new Date(y,m,d).getDay());
+    const lvl=xs.length>=5?"l3":xs.length>=3?"l2":xs.length?"l1":"";
+    const best=xs.length?pctDe(xs[0]):"";
+    h+=`<button type="button" class="dc ${lvl}${iso===hoy?" hoy":""}${iso<hoy?" past":""}" data-iso="${iso}" aria-pressed="${iso===S.mesDia}" aria-label="${d} de ${MESES_L[m]}: ${xs.length} ofertas"><b>${d}</b><small>${esc(best)}</small></button>`;
+  }
+  $("cal").innerHTML=h;
+  const d0=new Date(S.mesDia+"T12:00"),xs=ofertasEnFecha(S.mesDia,d0.getDay());
+  $("mesDia").innerHTML=`<h3 class="sec">${DIAS_L[d0.getDay()]} ${d0.getDate()} de ${MESES_L[d0.getMonth()]} <span class="note">· ${xs.length} ${xs.length===1?"oferta":"ofertas"}</span></h3>`+
+    (xs.length?xs.map(ofertaHTML).join(""):`<div class="empty">No hay ofertas registradas para este día.</div>`);
+  const ini=isoF(y,m,1),fin=isoF(y,m,dim),ids=idsActivas();
+  const enMes=S.beneficios.filter(b=>b.tipo!=="permanente"&&(b.tarjetas||[]).some(id=>ids.has(id))&&(!b.desde||b.desde<=fin)&&(!b.hasta||b.hasta>=ini));
+  const sin=enMes.filter(b=>!Array.isArray(b.dias));
+  $("mesSinDia").innerHTML=sin.length?`<h3 class="sec plain">Sin día fijo</h3><p class="note">Estas ofertas no indican en qué días aplican. Confírmalo en el banco.</p>`+sin.map(ofertaHTML).join(""):"";
+  const venc=enMes.filter(b=>b.hasta&&b.hasta<=fin).sort((a,b)=>a.hasta.localeCompare(b.hasta));
+  $("mesVencen").hidden=!venc.length;
+  $("mesVencen").innerHTML=venc.length?`<h4>Vencen este mes</h4>`+venc.map(b=>`<div class="venc"><span>${esc(b.comercio)} · ${esc(pctDe(b))}</span><span>${fmt(b.hasta)}</span></div>`).join(""):"";
+}
+
+/* ---------- Tarjetas ---------- */
+function renderWallet(){
+  const ts=activas();
+  const cuenta=t=>S.beneficios.filter(b=>b.tipo!=="permanente"&&vigente(b)&&(b.tarjetas||[]).includes(t.id)).length;
+  $("wallet").innerHTML=ts.length?ts.map(t=>`<div class="cc" style="background:${esc(t.color||"#2B3A44")}">
+      <div class="rw"><span class="k">${esc(t.emisor||"")}</span><span class="k">${TIPO[t.tipo]||""}</span></div>
+      <div class="chipgold" aria-hidden="true"></div>
+      <div class="rw"><span class="n">${esc(t.nombre)}</span><span class="k">${cuenta(t)} ofertas</span></div>
+    </div>`).join(""):`<div class="empty">Todas tus tarjetas están ocultas. Muéstralas de nuevo abajo.</div>`;
+  $("perksArea").innerHTML=ts.map(t=>{
+    const ps=S.beneficios.filter(b=>b.tipo==="permanente"&&(b.tarjetas||[]).includes(t.id));
+    const confirm=S.confirmar===t.id;
+    return `<div class="perks">
+      <h4>${esc(t.nombre)} · beneficios fijos</h4>
+      ${ps.length?ps.map(p=>`<div class="perk"><strong>${esc(p.comercio)}</strong><span>${esc(p.detalle||"")}${p.verificado===false?" · confirmar en el banco":""}</span>${p.fuente?`<span class="src"><a href="${esc(p.fuente)}" target="_blank" rel="noopener">Ver fuente</a></span>`:""}</div>`).join(""):`<div class="perk"><span>Sin beneficios fijos registrados.</span></div>`}
+      <div class="cardactions">
+        <button type="button" class="btn primary" data-ver="${esc(t.id)}">Ver sus ${cuenta(t)} ofertas</button>
+        ${confirm?`<span class="note">¿Ocultar ${esc(t.nombre)}?</span><button type="button" class="btn danger" data-ocultar="${esc(t.id)}">Sí, ocultar</button><button type="button" class="btn" data-cancel="1">Cancelar</button>`:`<button type="button" class="btn" data-ask="${esc(t.id)}">Ya no la uso</button>`}
+      </div></div>`}).join("");
+  const ocultas=S.tarjetas.filter(t=>S.hidden.has(t.id));
+  $("ocultasNota").innerHTML=ocultas.length?"Ocultas: "+ocultas.map(t=>`${esc(t.nombre)} <button type="button" class="linkbtn" data-mostrar="${esc(t.id)}">mostrar</button>`).join(" · "):"";
+}
+
+/* ---------- Pluxee ---------- */
+function renderPx(){
+  const q=S.pxQ.toLowerCase();
+  const cnt={todos:S.px.length,si:0,no:0,duda:0};
+  S.px.forEach(p=>{if(cnt[p.estado]!==undefined)cnt[p.estado]++});
+  $("pxChips").innerHTML=[["todos","Todos"],["si","Sí"],["no","No"],["duda","Por confirmar"]].map(([k,l])=>`<button type="button" class="chip" data-pxf="${k}" aria-pressed="${S.pxF===k}">${l} · ${cnt[k]}</button>`).join("");
+  const xs=S.px.filter(p=>(S.pxF==="todos"||p.estado===S.pxF)&&(!q||(p.nombre+" "+(p.categoria||"")+" "+(p.nota||"")).toLowerCase().includes(q))).sort((a,b)=>a.nombre.localeCompare(b.nombre));
+  let h=xs.map(p=>{
+    const del=S.pxDel===p.id;
+    return `<article class="px"><div class="pxbody"><h3>${esc(p.nombre)}</h3><div class="meta"><span class="tag ${p.estado==="si"?"ok":p.estado==="no"?"no":"warn"}">${PX_EST[p.estado]||"Por confirmar"}</span>${p.categoria?`<span class="tag">${esc(p.categoria)}</span>`:""}${p.fecha?`<span class="tag">Revisado ${fmt(p.fecha)}</span>`:""}</div>${p.nota?`<p>${esc(p.nota)}</p>`:""}</div>`+
+      `<div class="pxact">${del?`<button type="button" class="btn danger" data-pxdel="${esc(p.id)}">Quitar</button><button type="button" class="btn" data-pxcancel="1">No</button>`:`<button type="button" class="btn" data-pxcyc="${esc(p.id)}">Cambiar</button><button type="button" class="btn" data-pxask="${esc(p.id)}" aria-label="Quitar ${esc(p.nombre)}">&#215;</button>`}</div></article>`}).join("");
+  if(!xs.length)h=q?`<div class="empty">No tienes «${esc(S.pxQ)}» guardado.<br><br><button type="button" class="btn primary" data-pxadd="1">Agregar «${esc(S.pxQ)}»</button></div>`:`<div class="empty">Aún no guardas lugares. Busca uno en el buscador de Pluxee y anota aquí si lo aceptan.</div>`;
+  $("pxList").innerHTML=h;
+}
+
+/* ---------- Render general ---------- */
+function renderFoot(){
+  const m=S.meta;
+  $("foot").innerHTML=(m&&m.actualizado?`Datos actualizados el ${fmt(m.actualizado)}${m.proxima?` · próxima revisión: ${fmt(m.proxima)}`:""}. `:"")+
+    "Los descuentos cambian cada mes. Antes de pagar, revisa las condiciones en la página del banco.";
+}
+function render(){
+  $("hoyTxt").textContent="Hoy es "+DIAS_L[now.getDay()]+" "+now.getDate()+" de "+MESES_L[now.getMonth()]+(S.meta&&S.meta.actualizado?" · datos del "+fmt(S.meta.actualizado):"");
+  const hasPx=activas().some(t=>t.id==="pluxee");
+  $("tab-pluxee").hidden=!hasPx;
+  if(S.vista==="pluxee"&&!hasPx)S.vista="dia";
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.v===S.vista));
+  $("orden").value=S.orden;
+  $("vOfertas").hidden=!(S.vista==="dia"||S.vista==="todas");
+  $("vMes").hidden=S.vista!=="mes";
+  $("vTarjetas").hidden=S.vista!=="tarjetas";
+  $("vPluxee").hidden=S.vista!=="pluxee";
+  if(S.vista==="tarjetas")renderWallet();
+  else if(S.vista==="mes")renderMes();
+  else if(S.vista==="pluxee")renderPx();
+  else{renderDays();renderChips();renderList();renderResumen()}
+  renderFoot();
+}
+
+/* ---------- Eventos ---------- */
+document.querySelector("nav.tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  S.vista=b.dataset.v;ls.set("mb-vista",S.vista);render();window.scrollTo({top:0})
+});
+$("days").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.dia=+b.dataset.d;render()});
+$("catChips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.cat=b.dataset.cat;render()});
+$("cardChips").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.rm)S.soloRM=!S.soloRM;
+  else if(b.dataset.favFilter)S.soloFav=!S.soloFav;
+  else S.tarjeta=b.dataset.card;
+  render()});
+$("canalChips").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.canal=b.dataset.canal;render()});
+$("orden").addEventListener("change",e=>{S.orden=e.target.value;ls.set("mb-orden",S.orden);renderList()});
+$("limpiar").addEventListener("click",()=>{S.cat="Todas";S.tarjeta="todas";S.canal="todos";S.soloFav=false;S.soloRM=false;S.q="";$("q").value="";render()});
+let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();renderList();renderResumen()},120)});
+
+$("cal").addEventListener("click",e=>{const b=e.target.closest("[data-iso]");if(!b)return;S.mesDia=b.dataset.iso;renderMes()});
+$("mesPrev").addEventListener("click",()=>{const d=new Date(S.mes.y,S.mes.m-1,1);S.mes={y:d.getFullYear(),m:d.getMonth()};renderMes()});
+$("mesNext").addEventListener("click",()=>{const d=new Date(S.mes.y,S.mes.m+1,1);S.mes={y:d.getFullYear(),m:d.getMonth()};renderMes()});
+
+/* Tocar una oferta la expande; la estrella la guarda como favorita. */
+document.addEventListener("click",e=>{
+  const f=e.target.closest("[data-fav]");
+  if(f){
+    const id=f.dataset.fav;
+    if(S.favs.has(id))S.favs.delete(id);else S.favs.add(id);
+    guardaFavs();
+    const on=S.favs.has(id);
+    document.querySelectorAll(`[data-fav="${CSS.escape(id)}"]`).forEach(x=>{x.setAttribute("aria-pressed",on);x.innerHTML=on?"&#9733;":"&#9734;"});
+    if(S.soloFav&&!on)renderList();
+    return;
+  }
+  const card=e.target.closest(".offer");
+  if(card&&!e.target.closest("a"))card.classList.toggle("open");
+});
+
+$("perksArea").addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+  if(d.ver){S.vista="todas";S.tarjeta=d.ver;S.cat="Todas";S.canal="todos";S.soloFav=false;S.soloRM=false;S.q="";$("q").value="";ls.set("mb-vista","todas");render();window.scrollTo({top:0});return}
+  if(d.ask){S.confirmar=d.ask}
+  if(d.cancel){S.confirmar=null}
+  if(d.ocultar){S.hidden.add(d.ocultar);ls.set("mb-hidden",[...S.hidden]);S.confirmar=null}
+  render();
+});
+$("ocultasNota").addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t||!t.dataset.mostrar)return;
+  S.hidden.delete(t.dataset.mostrar);ls.set("mb-hidden",[...S.hidden]);render();
+});
+
+let pxt;$("pxQ").addEventListener("input",e=>{clearTimeout(pxt);pxt=setTimeout(()=>{S.pxQ=e.target.value.trim();renderPx()},120)});
+const guardaPx=()=>ls.set("mb-px",S.px);
+$("vPluxee").addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;const d=t.dataset;
+  if(d.pxf){S.pxF=d.pxf}
+  else if(d.pxask){S.pxDel=d.pxask}
+  else if(d.pxcancel){S.pxDel=null}
+  else if(d.pxadd){$("pxNombre").value=S.pxQ;$("pxNombre").focus();return}
+  else if(d.pxcyc){
+    const p=S.px.find(x=>x.id===d.pxcyc);if(!p)return;
+    p.estado={si:"no",no:"duda",duda:"si"}[p.estado]||"si";p.fecha=hoyISO();guardaPx();
+  }
+  else if(d.pxdel){S.px=S.px.filter(x=>x.id!==d.pxdel);S.pxDel=null;guardaPx()}
+  else return;
+  renderPx();
+});
+$("pxForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const nombre=$("pxNombre").value.trim();if(!nombre)return;
+  const id=slugF(nombre)||("lugar-"+Date.now());
+  const item={id,nombre,estado:$("pxEstado").value,categoria:$("pxCat").value,nota:$("pxNota").value.trim(),fecha:hoyISO()};
+  const i=S.px.findIndex(x=>x.id===id);
+  if(i>=0)S.px[i]=item;else S.px.push(item);
+  guardaPx();
+  $("pxStatus").textContent="Guardado: "+nombre;
+  e.target.reset();renderPx();
+});
+
+render();
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){
+  navigator.serviceWorker.register("sw.js").catch(()=>{});
+}
+</script>
+</body>
+</html>

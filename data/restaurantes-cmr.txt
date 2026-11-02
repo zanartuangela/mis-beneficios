@@ -1,0 +1,108 @@
+# Restaurantes con descuento CMR (Banco Falabella). Una oferta por línea:
+# descuento|nombre|condición|días|ubicación|vence (AAAA-MM-DD)
+# Fuente: panguiapp.com/explorar?category=restaurante&bank=cmr-falabella (leída el 2026-11-02) y neatpagos.com.
+# "Cerca de ti" significa que la fuente no indica un lugar específico.
+40|Fuente Suiza|Exclusivo presencial|Todos los días|Cerrillos +2|2026-12-01
+40|Coppelia|Exclusivo presencial|Todos los lunes|Cerca de ti|2026-12-01
+40|Sempre Pasta|Presencial en Concepción|Todos los miércoles|Cerca de ti|2026-12-01
+40|McDonald's|McCombo Big Mac|Todos los lunes|Cerca de ti|2026-12-01
+40|Doggis|Presencial en tótem y por la app|Todos los lunes|Cerca de ti|2026-12-01
+40|Juan Maestro|Válido vía tótem y por la app|Todos los lunes|Cerca de ti|2026-12-01
+40|Tommy Beans|Presencial en tótem y por la app|Todos los lunes|Cerca de ti|2026-12-01
+40|Barrio Chick'en|Presencial en tótem y por la app|Todos los lunes|Cerca de ti|2026-12-01
+40|Lovdo|Exclusivo delivery|Todos los lunes|Cerca de ti|2026-12-01
+40|Caffe Pascucci|Exclusivo presencial|Todos los lunes|Cerca de ti|2026-12-01
+40|Bianco Latte|Exclusivo presencial|Todos los martes|Cerca de ti|2026-12-01
+40|Barra Olivo|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Domino's Pizza|Presencial y online|Todos los miércoles|Cerca de ti|2026-12-01
+40|Boost|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Mr. Pretzels|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Yogen Fruz|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Boka Sushi|Exclusivo online|Todos los miércoles|Cerca de ti|2026-12-01
+40|Nelí|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Rocoto|Exclusivo presencial|Todos los sábados|Cerca de ti|2026-12-01
+40|La Maestranza|Exclusivo presencial|lunes y miércoles|Lo Barnechea +1|2026-12-01
+40|La Santoría|Exclusivo presencial|6 días a la semana|Providencia|2026-12-01
+40|De Barrio|Exclusivo presencial|4 días a la semana|Cerca de ti|2026-12-01
+40|Vapiano|Exclusivo presencial|5 días a la semana|Las Condes +1|2026-12-01
+40|Just Burger|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
+40|La Patrona|Exclusivo presencial|4 días a la semana|La Florida|2026-12-01
+40|Vendetta|Presencial en locales seleccionados|4 días a la semana|La Florida +3|2026-12-01
+40|Tigre Bravo|Exclusivo presencial|martes y miércoles|Maipú|2026-12-01
+40|Danés|Exclusivo presencial|miércoles y sábado|Las Condes|2026-12-01
+40|Berlín Döner Kebab|Exclusivo presencial|lunes y jueves|Cerca de ti|2026-12-01
+40|Cantina Montt|Exclusivo presencial|martes y sábado|Providencia|2026-12-01
+40|Cantina Varas|Exclusivo presencial|6 días a la semana|Providencia|2026-12-01
+40|Kento Gourmet|Presencial y online|4 días a la semana|Cerca de ti|2026-12-01
+40|Misceláneo|Exclusivo presencial|5 días a la semana|Vitacura|2026-12-01
+40|Udon|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
+40|Kato|Exclusivo presencial|6 días a la semana|Cerca de ti|2026-12-01
+40|Siete Cortes|Presencial. Lunes y martes todo el día; miércoles a domingo desde las 19:00 (Open Kennedy)|Todos los días|Región Metropolitana de Santiago|2026-12-01
+40|Badass|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
+40|Barra Chalaca|Presencial. Revisa día según local|Todos los días|Conchalí +4|2026-12-01
+40|Ekeko|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
+40|El Bodegón|Presencial. Revisa día según local|Todos los días|Región Metropolitana de Santiago|2026-12-01
+40|El Japonés|Presencial. Revisa día según local|Todos los días|Región Metropolitana de Santiago|2026-12-01
+40|Enrique Tomás|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
+40|Frida Kahlo|Presencial. Revisa día según local|Todos los días|Región Metropolitana de Santiago|2026-12-01
+40|Jalisco|Presencial. Revisa día según local|Todos los días|Región Metropolitana de Santiago|2026-12-01
+40|Kairos Garden|Presencial. Revisa día según local|lunes y martes|La Florida|2026-12-01
+40|La Argentina Pizzería|Presencial. Revisa día según local|Todos los días|Cerca de ti|2026-12-01
+40|La Piazza|Presencial. Revisa día según local|Todos los días|La Florida +1|2026-12-01
+40|La Sanguchera del Barrio|Presencial. Revisa día según local|Todos los días|La Reina +2|2026-12-01
+40|Mamma Mia|Presencial. Revisa día según local|Todos los días|Antofagasta +3|2026-12-01
+40|Mesón del Marinero|Presencial. Revisa día según local|Todos los días|Antofagasta +1|2026-12-01
+40|Milá|Presencial. Revisa día según local|Todos los días|Santiago|2026-12-01
+40|Mamut|Exclusivo presencial|Todos los lunes|Cerca de ti|2026-12-01
+40|Muu Grill|Presencial. Revisa día según local|Todos los días|Antofagasta +7|2026-12-01
+40|Take a Wok|Presencial. Revisa día según local|Todos los días|Antofagasta +6|2026-12-01
+40|Tanta|Presencial. Revisa día según local|Todos los días|Conchalí +2|2026-12-01
+40|Sushi & Burger Home|Presencial en Viña del Mar y Reñaca|Todos los miércoles|Cerca de ti|2026-12-01
+40|Sushi Home|Presencial en Reñaca|Todos los jueves|Cerca de ti|2026-12-01
+40|Lebol Restobar|Presencial en Concepción|Todos los viernes|Cerca de ti|2026-12-01
+40|Augusta Bar|Presencial en Concepción|Todos los martes|Concepción|2026-12-01
+40|Terraangamos|Presencial en Talcahuano|Todos los martes|Cerca de ti|2026-12-01
+40|Boreal Bar Rancagua|Presencial en Rancagua|Todos los miércoles|Rancagua|2026-12-01
+40|La Fábrica Talca|Presencial en Talca|Todos los martes|Talca|2026-12-01
+40|Cervecería Kunstmann Valdivia|Presencial en Valdivia|Todos los jueves|Valdivia|2026-12-01
+40|Greed Taproom|Presencial en Osorno|Todos los miércoles|Cerca de ti|2026-12-01
+40|Terralomas Concepción|Presencial en Concepción|Todos los miércoles|Bío Bío|2026-12-01
+40|Baqueano Temuco|Presencial en Temuco|Todos los martes|Cerca de ti|2026-12-01
+40|Dominga Bistro Valdivia|Presencial en Valdivia|Todos los miércoles|Cerca de ti|2026-12-01
+40|Roberta Ostería|Presencial Viña y Reñaca|Todos los miércoles|Cerca de ti|2026-12-01
+40|Cattedrale Cucina Villarrica|Presencial en Villarrica|Todos los martes|Cerca de ti|2026-12-01
+40|Punta del Sol 5ta Región|Presencial Maitencillo|martes y jueves|Cerca de ti|2026-12-01
+40|Taurus Steak Bar Chillán|Presencial en Chillán|Todos los martes|Cerca de ti|2026-12-01
+40|Martina Lounge Bar|Presencial en Temuco|Todos los martes|Temuco|2026-12-01
+40|Fratello Trattoría|Presencial en Temuco|Todos los viernes|Cerca de ti|2026-12-01
+40|Fogón Greed|Presencial en Osorno|Todos los miércoles|Osorno|2026-12-01
+40|Barros Negros|Exclusivo presencial|Todos los miércoles|Cerca de ti|2026-12-01
+40|Umami Bar Nikkei|Presencial en Valdivia|Todos los miércoles|Cerca de ti|2026-12-01
+40|Dagan|Presencial con CMR Elite|Todos los martes|Cerca de ti|2026-12-01
+40|Hijo del Sol Santiago|Exclusivo presencial|lunes y martes|Cerca de ti|2026-12-01
+40|Petit|Presencial|Todos los días|Cerca de ti|2026-12-01
+40|Sakura|En rolls y hosomakis|Todos los sábados|Cerca de ti|2026-12-01
+40|Le Vice|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
+40|Prima Bar|Exclusivo presencial|Todos los viernes|Cerca de ti|2026-12-01
+40|Viña Viu Manent y Restaurante Rayuela|Exclusivo presencial|Todos los viernes|Cerca de ti|2026-12-01
+40|Hijo del Sol 5ta Región|Presencial Maitencillo y Algarrobo|martes y jueves|Cerca de ti|2026-12-01
+40|Casa Abierta|Presencial en Concón|Todos los miércoles|Cerca de ti|2026-12-01
+40|Barroco Restobar|Presencial en San Pedro de la Paz|Todos los martes|Cerca de ti|2026-12-01
+40|Papa Johns|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
+40|Tropera Drugstore|Exclusivo presencial|Todos los miércoles|Providencia|2026-12-01
+40|Taberna Nose Puerto Varas|Presencial en Puerto Varas|Todos los viernes|Cerca de ti|2026-12-01
+40|Zulu|Exclusivo presencial|Todos los sábados|Cerca de ti|2026-12-01
+40|La Independiente Puerto Varas|Presencial en Puerto Varas|Todos los domingos|Cerca de ti|2026-12-01
+40|Esquina Tropera Coyhaique|Presencial en Coyhaique|Todos los miércoles|Cerca de ti|2026-12-01
+40|Santo Aire Restobar|Presencial en Concepción|Todos los jueves|Cerca de ti|2026-12-01
+30|Jackie Guiloff|Presencial y online|Todos los martes|Cerca de ti|2026-12-01
+30|House Bar|Online|Todos los días|Cerca de ti|2026-12-01
+25|Martes de Dulzura Mallplaza|Presencial en Mallplaza|Todos los martes|Cerca de ti|2026-12-01
+20|Club de restaurantes CMR|Exclusivo presencial. Cientos de restaurantes adheridos|Todos los días|Cerca de ti|2026-12-31
+20|400 Pizzería|Presencial. Club CMR, reserva online|Todos los días|Las Condes|2026-12-31
+20|Pasta al Vuelo|Presencial. Club CMR, reserva online|Todos los días|Santiago y Providencia|2026-12-31
+20|Mia Perú|Presencial. Club CMR, reserva online|Todos los días|La Florida|2026-12-31
+20|Cq Sushi & Sándwich|Presencial. Club CMR, reserva online|Todos los días|La Florida|2026-12-31
+20|Once 22 Vegan Sushi|Presencial. Club CMR, reserva online|Todos los días|San Miguel|2026-12-31
+20|Zona Latina|Presencial. Club CMR, reserva online|Todos los días|Recoleta|2026-12-31
+20|Jardín Teresa|Presencial. Club CMR, reserva online|Todos los días|San Miguel|2026-12-31

@@ -1,0 +1,268 @@
+[
+  {
+    "id": "bice-airport-companion",
+    "categoria": "Viajes",
+    "comercio": "Visa Airport Companion",
+    "detalle": "App de Visa con acceso a salas VIP y descuentos en aeropuertos. Requiere inscribirse.",
+    "fuente": "https://banco.bice.cl/personas/beneficios/app-visa-airport",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  },
+  {
+    "id": "bice-kobo",
+    "canal": "Presencial",
+    "categoria": "Restaurantes",
+    "comercio": "Kobo",
+    "descuento": "50%",
+    "dias": [
+      5
+    ],
+    "fuente": "https://mitarjetahoy.com/bice-descuentos-restaurantes-viernes-2026/",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "promo",
+    "verificado": false
+  },
+  {
+    "id": "bice-lo-saldes",
+    "canal": "Presencial",
+    "categoria": "Restaurantes",
+    "comercio": "Lo Saldes",
+    "descuento": "50%",
+    "dias": [
+      5
+    ],
+    "fuente": "https://mitarjetahoy.com/bice-descuentos-restaurantes-viernes-2026/",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "promo",
+    "verificado": false
+  },
+  {
+    "id": "bice-pescados-capitales",
+    "canal": "Presencial",
+    "categoria": "Restaurantes",
+    "comercio": "Pescados Capitales",
+    "descuento": "50%",
+    "detalle": "Las fuentes no coinciden en el día (sábado o domingo).",
+    "fuente": "https://mitarjetahoy.com/bice-descuentos-restaurantes-viernes-2026/",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "promo",
+    "verificado": false
+  },
+  {
+    "id": "bice-street-wrap",
+    "canal": "Presencial",
+    "categoria": "Restaurantes",
+    "comercio": "Street Wrap",
+    "descuento": "50%",
+    "dias": [
+      5
+    ],
+    "fuente": "https://mitarjetahoy.com/bice-descuentos-restaurantes-viernes-2026/",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "promo",
+    "verificado": false
+  },
+  {
+    "id": "bice-vacaciones-protegidas",
+    "categoria": "Seguros",
+    "comercio": "Vacaciones Protegidas Visa",
+    "detalle": "Coberturas de viaje asociadas a la tarjeta. Revisa qué cubre antes de viajar.",
+    "fuente": "https://banco.bice.cl/personas/beneficios/vacaciones-protegidas-visa",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  },
+  {
+    "id": "bice-vik",
+    "canal": "Presencial y online",
+    "categoria": "Restaurantes",
+    "comercio": "VIK (Pavilion y VIK Zero)",
+    "descuento": "20%",
+    "desde": "2026-10-01",
+    "detalle": "De martes a domingo; de viernes a domingo solo aplica en VIK Zero. Reserva y paga online o en el lugar.",
+    "dias": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      0
+    ],
+    "fuente": "https://banco.bice.cl/personas/beneficios/vik-visa",
+    "hasta": "2026-12-18",
+    "tarjetas": [
+      "bice-visa-infinite"
+    ],
+    "tipo": "promo",
+    "verificado": true
+  },
+  {
+    "id": "cmr-envios",
+    "categoria": "Compras",
+    "comercio": "3 despachos gratis al mes",
+    "detalle": "En Falabella.com, Sodimac.cl y la app de Sodimac.",
+    "fuente": "https://www.bancofalabella.cl/tarjetas-credito-cmr/mastercard-elite",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "cmr-internacional",
+    "categoria": "Viajes",
+    "comercio": "0% comisión en compras internacionales",
+    "detalle": "Según la ficha CMR Elite de Banco Falabella.",
+    "fuente": "https://www.bancofalabella.cl/tarjetas-credito-cmr/mastercard-elite",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "cmr-juan-valdez",
+    "canal": "Presencial",
+    "categoria": "Café",
+    "comercio": "Juan Valdez",
+    "descuento": "40%",
+    "detalle": "Beneficio CMR de los viernes.",
+    "dias": [
+      5
+    ],
+    "fuente": "https://www.bancofalabella.cl/descuentos",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "promo",
+    "tope": "Sin tope",
+    "verificado": true
+  },
+  {
+    "id": "cmr-maletas",
+    "categoria": "Viajes",
+    "comercio": "2 maletas gratis al año",
+    "detalle": "En vuelos y paquetes LATAM o Sky comprados en Viajes Falabella.",
+    "fuente": "https://www.viajesfalabella.cl/cmr/banco-falabella",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  },
+  {
+    "id": "cmr-parking",
+    "categoria": "Servicios",
+    "comercio": "Estacionamiento gratis en Mallplaza",
+    "detalle": "Con Parking Digital Mallplaza.",
+    "fuente": "https://www.bancofalabella.cl/tarjetas-credito-cmr/mastercard-elite",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "cmr-superzoo",
+    "canal": "Online",
+    "categoria": "Mascotas",
+    "comercio": "Superzoo",
+    "descuento": "20%",
+    "detalle": "Compras en la tienda online.",
+    "dias": [
+      5
+    ],
+    "fuente": "https://www.bancofalabella.cl/descuentos",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "promo",
+    "tope": "Sin tope",
+    "verificado": true
+  },
+  {
+    "id": "cmr-traslados",
+    "categoria": "Viajes",
+    "comercio": "2 traslados al aeropuerto gratis al año",
+    "detalle": "Desde y hacia el aeropuerto, en Santiago y regiones, vía Viajes Falabella.",
+    "fuente": "https://www.viajesfalabella.cl/cmr/banco-falabella",
+    "tarjetas": [
+      "cmr-elite-black"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  },
+  {
+    "id": "go-convenios",
+    "categoria": "Servicios",
+    "comercio": "Convenios Shell, McParking y PedidosYa",
+    "detalle": "Descuentos asociados a la cuenta Go BICE. Los porcentajes no están publicados en la fuente.",
+    "fuente": "https://www.rankia.cl/blog/mejores-cuentas-bancarias/5424236-cuenta-go-bice",
+    "tarjetas": [
+      "go-bice"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "go-giros",
+    "categoria": "Servicios",
+    "comercio": "2 giros gratis al mes",
+    "detalle": "En cajeros nacionales; luego UF 0,018 + IVA por giro.",
+    "fuente": "https://www.rankia.cl/tarjetas/tarjeta-debito-go-bice-banco-bice",
+    "tarjetas": [
+      "go-bice"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "go-sin-costos",
+    "categoria": "Servicios",
+    "comercio": "Sin costo de mantención",
+    "detalle": "Sin cobro de mantención ni comisión en compras nacionales e internacionales.",
+    "fuente": "https://www.rankia.cl/tarjetas/tarjeta-debito-go-bice-banco-bice",
+    "tarjetas": [
+      "go-bice"
+    ],
+    "tipo": "permanente",
+    "verificado": false
+  },
+  {
+    "id": "pluxee-app",
+    "categoria": "Alimentación",
+    "comercio": "App Pluxee Chile",
+    "detalle": "Paga y revisa tu saldo desde el teléfono.",
+    "fuente": "https://www.pluxee.cl",
+    "tarjetas": [
+      "pluxee"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  },
+  {
+    "id": "pluxee-red",
+    "categoria": "Alimentación",
+    "comercio": "Más de 24.000 comercios",
+    "detalle": "Restaurantes, minimarkets y más. Busca dónde usarla en el buscador de comercios de Pluxee.",
+    "fuente": "https://www.pluxee.cl",
+    "tarjetas": [
+      "pluxee"
+    ],
+    "tipo": "permanente",
+    "verificado": true
+  }
+]
